@@ -1,2 +1,3 @@
-rootProject.name = 'modPacker'
+rootProject.name = "modPacker"
+include 'packModel'
 

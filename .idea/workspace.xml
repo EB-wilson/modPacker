@@ -4,7 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25b78fe4-bfa0-46fe-8a5c-c67ae31a0cd5" name="变更" comment="" />
+    <list default="true" id="25b78fe4-bfa0-46fe-8a5c-c67ae31a0cd5" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/bundles/bundle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/bundles/bundle_zh_CN.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packModel/assets/bundles/bundle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packModel/assets/bundles/bundle_zh_CN.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packModel/src/main/InstallHelperDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packModel/src/main/ReleaseHandle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modpacker/ArcMetaGen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modpacker/Global.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modpacker/ui/SavesSelectorDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modpacker/ui/SchematicSelectorDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modpacker/ui/SelectMapDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modpacker/utils/MetaGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modpacker/utils/ModInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mod.hjson" beforeDir="false" afterPath="$PROJECT_DIR$/mod.hjson" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packModel/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packModel/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packModel/src/main/ModInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/src/main/ModInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packModel/src/main/PackMeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/src/main/PackMeta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packModel/src/main/ReleaseHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modpacker/ModPacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/ModPacker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modpacker/ui/ModPackerDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/ui/ModPackerDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modpacker/utils/PackModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/utils/PackModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modpacker/utils/Packer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/utils/Packer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,21 +47,162 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="modPacker" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="modPacker" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="modPacker" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="modPacker" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2JldxpN8zh7udbx8IoCG1LUX7J7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/工程/mindustry/mod/modPacker/packModel&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\工程\mindustry\mod\modPacker\packModel" />
+      <recent name="D:\工程\mindustry\mod\modPacker" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\工程\mindustry\mod\modPacker\packModel\assets\bundles" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="modpacker.utils" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.modPacker [debugMod]">
+    <configuration name="modPacker [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="modPacker [debugMod]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="debugMod" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="modPacker [deploy]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="deploy" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.modPacker [debugMod]" />
+        <item itemvalue="Gradle.modPacker [deploy]" />
+        <item itemvalue="Gradle.modPacker [clean]" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -41,9 +211,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1672656861516</updated>
-      <workItem from="1672656867112" duration="1000" />
+      <workItem from="1672656867112" duration="15127000" />
+      <workItem from="1672717877641" duration="43473000" />
+      <workItem from="1672802354476" duration="34557000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -55,5 +230,14 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="model.listFiles()" />
+        <watch expression="Scl.scl()" />
+        <watch expression="modDirectory.absolutePath()" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
