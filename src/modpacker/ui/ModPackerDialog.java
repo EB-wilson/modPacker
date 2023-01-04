@@ -745,7 +745,7 @@ public class ModPackerDialog extends BaseDialog {
     }
 
     if (minGameVersion != -1){
-      return Integer.parseInt(mod.meta.minGameVersion) >= minGameVersion;
+      return Integer.parseInt(mod.meta.minGameVersion.split("\\.")[0]) >= minGameVersion;
     }
 
     return true;
@@ -816,7 +816,7 @@ public class ModPackerDialog extends BaseDialog {
   }
 
   private boolean isSupported(Mods.LoadedMod item) {
-    return Integer.parseInt(item.meta.minGameVersion) <= model.minGameVersion;
+    return Integer.parseInt(item.meta.minGameVersion.split("\\.")[0]) <= model.minGameVersion;
   }
 
   private boolean hasUnmetDependencies(Mods.LoadedMod item) {
