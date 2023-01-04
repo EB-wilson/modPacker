@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b78fe4-bfa0-46fe-8a5c-c67ae31a0cd5" name="变更" comment="算是，初步完成了这个工具吧">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mod.hjson" beforeDir="false" afterPath="$PROJECT_DIR$/mod.hjson" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packModel/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/src/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,22 +79,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/工程/mindustry/mod/modPacker/packModel&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "D:/工程/mindustry/mod/modPacker/packModel",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "File.Encoding"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\工程\mindustry\mod\modPacker\packModel" />
@@ -174,8 +175,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.modPacker [deploy]" />
-        <item itemvalue="Gradle.modPacker [debugMod]" />
         <item itemvalue="Gradle.modPacker [clean]" />
+        <item itemvalue="Gradle.modPacker [debugMod]" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +190,7 @@
       <updated>1672656861516</updated>
       <workItem from="1672656867112" duration="15127000" />
       <workItem from="1672717877641" duration="43473000" />
-      <workItem from="1672802354476" duration="36212000" />
+      <workItem from="1672802354476" duration="37609000" />
     </task>
     <task id="LOCAL-00001" summary="算是，初步完成了这个工具吧">
       <created>1672842636264</created>
@@ -198,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672842636264</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="算是，初步完成了这个工具吧">
+      <created>1672844551728</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672844551728</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
