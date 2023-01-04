@@ -15,20 +15,18 @@ public class Main extends Mod {
   public static Fi filesDir;
   public static Mods.LoadedMod self;
 
-  public Main(){
-    Events.on(EventType.ClientLoadEvent.class, e -> {
-      Time.run(1, () -> {
-        self = Vars.mods.getMod(Main.class);
+  static{
+    Time.run(1, () -> {
+      self = Vars.mods.getMod(Main.class);
 
-        selfFile = self.root;
-        modsDir = selfFile.child("assets").child("mods");
-        filesDir = selfFile.child("assets").child("files");
+      selfFile = self.root;
+      modsDir = selfFile.child("assets").child("mods");
+      filesDir = selfFile.child("assets").child("files");
 
-        ReleaseHandle handler = new ReleaseHandle();
-        handler.load();
+      ReleaseHandle handler = new ReleaseHandle();
+      handler.load();
 
-        new InstallHelperDialog().show();
-      });
+      new InstallHelperDialog().show();
     });
   }
 }
