@@ -44,6 +44,7 @@ import modpacker.utils.Packer;
 
 import java.io.File;
 import java.io.OutputStream;
+import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
@@ -77,7 +78,7 @@ public class ModPackerDialog extends BaseDialog {
     resized(this::rebuild);
     shown(() -> {
       model = new PackModel();
-      model.minGameVersion = Version.build;
+      model.minGameVersion = Version.build + (Version.revision == 0 ? "" : "." + Version.revision);
       rebuild();
     });
   }
@@ -99,7 +100,7 @@ public class ModPackerDialog extends BaseDialog {
         File icon = model.icon;
         String installMessage = model.installMessage;
 
-        int minGameVersion = model.minGameVersion;
+        String minGameVersion = model.minGameVersion;
 
         boolean deleteAtExit = model.deleteAtExit;
         boolean disableOther = model.disableOther;
@@ -110,7 +111,7 @@ public class ModPackerDialog extends BaseDialog {
           titleTable.clear();
           addCloseButton();
           buttons.button(Core.bundle.get("packer.ensure"), Icon.right, () -> {
-            if (name.trim().isEmpty() || name.contains(" ") || version.trim().isEmpty() || author.trim().isEmpty() || minGameVersion == -1){
+            if (name.trim().isEmpty() || name.contains(" ") || version.trim().isEmpty() || author.trim().isEmpty() || minGameVersion == null){
               ui.showInfo(Core.bundle.get("packer.metaFormatError"));
               return;
             }
@@ -127,6 +128,8 @@ public class ModPackerDialog extends BaseDialog {
             model.shouldBackupData = shouldBackupData;
             model.shouldClearOldData = shouldClearOldData;
             model.icon = icon;
+
+            rebuild.run();
 
             ui.showInfo(Core.bundle.get("packer.infosSaved"));
           });
@@ -167,12 +170,11 @@ public class ModPackerDialog extends BaseDialog {
 
               inputs.add(Core.bundle.get("packer.minGameVersion"));
               inputs.field(String.valueOf(minGameVersion), t -> {
-                try{
-                  minGameVersion = Integer.parseInt(t);
-                }catch (NumberFormatException e){
-                  minGameVersion = -1;
+                if (t.matches("^\\d+(\\.\\d+)*$")) {
+                  minGameVersion = t;
                 }
-              }).update(t -> t.setColor(minGameVersion == -1? Color.red: Color.white));
+                else minGameVersion = null;
+              }).update(t -> t.setColor(minGameVersion == null? Color.red: Color.white));
               inputs.row();
             }).growX();
             menu.row();
@@ -804,7 +806,7 @@ public class ModPackerDialog extends BaseDialog {
     /*}else if(item.isBlacklisted()){
       return "@mod.blacklisted";*/
     }else if(!isSupported(item)){
-      return Core.bundle.get("packer.incompatiblegame");
+      return "[red]" + Core.bundle.get("packer.incompatiblegame") + "[]";
     }else if(selected && hasUnmetDependencies(item)){
       return "@mod.unmetdependencies";
     }else if(item.hasContentErrors()){
@@ -816,7 +818,7 @@ public class ModPackerDialog extends BaseDialog {
   }
 
   private boolean isSupported(Mods.LoadedMod item) {
-    return Integer.parseInt(item.meta.minGameVersion.split("\\.")[0]) <= model.minGameVersion;
+    return compareVersion(item.meta.minGameVersion, model.minGameVersion) >= 0;
   }
 
   private boolean hasUnmetDependencies(Mods.LoadedMod item) {
@@ -883,5 +885,26 @@ public class ModPackerDialog extends BaseDialog {
     }
 
     dialog.show();
+  }
+
+  public static int compareVersion(String a, String b){
+    if (a.equals(b)) return 0;
+
+    String[] verA = a.split("\\."), verB = b.split("\\.");
+
+    int cmp = Integer.compare(Integer.parseInt(verA[0]), Integer.parseInt(verB[0]));
+    if (cmp == 0){
+      if (verA.length == 1){
+        verA = Arrays.copyOf(verA, 2);
+        verA[1] = "0";
+      }
+      if (verB.length == 1){
+        verB = Arrays.copyOf(verA, 2);
+        verB[1] = "0";
+      }
+
+      return Integer.compare(Integer.parseInt(verA[1]), Integer.parseInt(verB[1]));
+    }
+    else return cmp;
   }
 }

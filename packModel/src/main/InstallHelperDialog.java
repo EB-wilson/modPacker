@@ -7,6 +7,7 @@ import arc.graphics.Pixmap;
 import arc.graphics.PixmapIO;
 import arc.graphics.Texture;
 import arc.graphics.g2d.TextureRegion;
+import arc.scene.event.Touchable;
 import arc.scene.style.Drawable;
 import arc.scene.style.TextureRegionDrawable;
 import arc.scene.ui.CheckBox;
@@ -74,6 +75,8 @@ public class InstallHelperDialog extends BaseDialog {
     }
 
     public void buildModItem(Table parent, ModInfo mod){
+      Mods.LoadedMod loadedMod = mods.getMod(mod.name);
+      boolean[] bool = {false};
       parent.button(ta -> {
         ta.top().left();
         ta.margin(12f);
@@ -97,6 +100,20 @@ public class InstallHelperDialog extends BaseDialog {
             text.add("[lightgray]" + mod.version + "[]").wrap().top().grow();
             text.row();
             text.add("[gray]" + mod.author + "[]").wrap().bottom().fillY().growX().padBottom(5);
+
+            if (loadedMod != null){
+              text.row();
+
+              if (loadedMod.hasSteamID()) {
+                text.add(Core.bundle.get("package.cannotOverrideSteamMod")).color(Color.red).wrap().bottom().fillY().growX().padBottom(5);
+              }
+              else if (ModInfo.compareVersion(mod.version, loadedMod.meta.version) < 0){
+                text.add(Core.bundle.get("package.existHigher")).color(Color.red).wrap().bottom().fillY().growX().padBottom(5);
+              }
+              else{
+                text.add(Core.bundle.get("package.existSameName")).color(Color.gray).wrap().bottom().fillY().growX().padBottom(5);
+              }
+            }
           }).top().growX();
 
           title1.add().growX();
@@ -104,8 +121,14 @@ public class InstallHelperDialog extends BaseDialog {
 
         ta.check("", b -> {
           if (!handle.selectedMod.add(mod)) handle.selectedMod.remove(mod);
-        }).right().size(50).padRight(-8f).padTop(-8f).update(c -> c.setChecked(handle.selectedMod.contains(mod)));
-      }, Styles.flatBordert, () -> showMod(mod)).height(110).growX().pad(4f);
+          bool[0] = true;
+        }).right().size(50).padRight(-8f).padTop(-8f).update(c -> {
+          c.setChecked(handle.selectedMod.contains(mod));
+          bool[0] = false;
+        });
+      }, Styles.flatBordert, () -> {
+        if (!bool[0]) showMod(mod);
+      }).disabled(loadedMod != null && loadedMod.hasSteamID()).height(110).growX().pad(4f);
     }
 
     //copy paste codes

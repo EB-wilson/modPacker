@@ -9,7 +9,6 @@ public class ModInfo {
   public String name;
   public String version;
   public String author;
-  public int minGameVersion;
   public File file;
   public List<String> dependencies = Arrays.asList();
 
@@ -26,8 +25,6 @@ public class ModInfo {
       res.version = m.meta.version;
       res.author = m.meta.author;
       res.dependencies = new ArrayList<>(m.meta.dependencies.list());
-
-      res.minGameVersion = Integer.parseInt(m.meta.minGameVersion);
 
       res.file = m.file.file();
 

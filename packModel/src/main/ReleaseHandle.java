@@ -101,6 +101,7 @@ public class ReleaseHandle {
 
     if (deleteAtExit && !shouldClearOldData){
       mods.removeMod(Main.self);
+      Main.self.file.file().deleteOnExit();
       if (Main.self.file.exists()){
         mods.setEnabled(Main.self, false);
       }
@@ -141,7 +142,14 @@ public class ReleaseHandle {
       Jval infos = Jval.read(reader);
       meta.load(infos);
 
-      selectedMod.addAll(meta.mods);
+      selectedMod.addAll(meta.mods.select(e -> {
+        Mods.LoadedMod mod = mods.getMod(e.name);
+        if (mod == null) return true;
+        if (mod.hasSteamID()) return false;
+
+        return ModInfo.compareVersion(e.version, mod.meta.version) >= 0;
+      }));
+
       selectFiles.addAll(meta.additionalFiles.keys().toSeq());
 
       deleteAtExit = infos.getBool("deleteAtExit", false);

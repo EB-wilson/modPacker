@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25b78fe4-bfa0-46fe-8a5c-c67ae31a0cd5" name="变更" comment="算是，初步完成了这个工具吧">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
+    <list default="true" id="25b78fe4-bfa0-46fe-8a5c-c67ae31a0cd5" name="变更" comment="紧急修复严重问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bundles/bundle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bundles/bundle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bundles/bundle_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bundles/bundle_zh_CN.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mod.hjson" beforeDir="false" afterPath="$PROJECT_DIR$/mod.hjson" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packModel/assets/bundles/bundle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/assets/bundles/bundle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packModel/assets/bundles/bundle_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/assets/bundles/bundle_zh_CN.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packModel/src/main/InstallHelperDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/src/main/InstallHelperDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packModel/src/main/ModInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/src/main/ModInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packModel/src/main/ReleaseHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/src/main/ReleaseHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modpacker/ArcMetaGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/ArcMetaGen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modpacker/ui/ModPackerDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/ui/ModPackerDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modpacker/utils/ModInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/utils/ModInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modpacker/utils/PackModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/utils/PackModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +94,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
+    "last.edited.regexp": "示例文本",
     "last_opened_file_path": "D:/工程/mindustry/mod/modPacker/packModel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -93,7 +104,7 @@
     "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "File.Encoding"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -190,7 +201,8 @@
       <updated>1672656861516</updated>
       <workItem from="1672656867112" duration="15127000" />
       <workItem from="1672717877641" duration="43473000" />
-      <workItem from="1672802354476" duration="37609000" />
+      <workItem from="1672802354476" duration="37964000" />
+      <workItem from="1672889844906" duration="6062000" />
     </task>
     <task id="LOCAL-00001" summary="算是，初步完成了这个工具吧">
       <created>1672842636264</created>
@@ -206,7 +218,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672844551728</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="补上 README.md">
+      <created>1672845793792</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672845793792</updated>
+    </task>
+    <task id="LOCAL-00004" summary="紧急修复严重问题">
+      <created>1672846105473</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672846105473</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +251,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="算是，初步完成了这个工具吧" />
-    <option name="LAST_COMMIT_MESSAGE" value="算是，初步完成了这个工具吧" />
+    <MESSAGE value="补上 README.md" />
+    <MESSAGE value="紧急修复严重问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="紧急修复严重问题" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -235,5 +263,9 @@
         <watch expression="modDirectory.absolutePath()" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

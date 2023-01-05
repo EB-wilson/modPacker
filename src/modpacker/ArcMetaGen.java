@@ -19,10 +19,9 @@ public class ArcMetaGen implements MetaGenerator {
     res.add("description", model.description);
     res.add("version", model.version);
     res.add("author", model.author);
+    res.add("minGameVersion", model.minGameVersion);
 
     if (model.installMessage != null) res.add("installMessage", model.installMessage);
-
-    res.add("minGameVersion", Jval.valueOf(model.minGameVersion));
 
     res.add("deleteAtExit", Jval.valueOf(model.deleteAtExit));
     res.add("disableOther", Jval.valueOf(model.disableOther));

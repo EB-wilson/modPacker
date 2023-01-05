@@ -16,7 +16,7 @@ public class PackModel {
   public String description = "";
   public String version = "";
   public String author = "";
-  public int minGameVersion = -1;
+  public String minGameVersion = "0";
 
   public File icon;
   public String installMessage;
