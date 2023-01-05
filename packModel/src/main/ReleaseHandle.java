@@ -147,7 +147,11 @@ public class ReleaseHandle {
         if (mod == null) return true;
         if (mod.hasSteamID()) return false;
 
-        return ModInfo.compareVersion(e.version, mod.meta.version) >= 0;
+        try{
+          return ModInfo.compareVersion(e.version, mod.meta.version) >= 0;
+        }catch (IllegalArgumentException err){
+          return false;
+        }
       }));
 
       selectFiles.addAll(meta.additionalFiles.keys().toSeq());

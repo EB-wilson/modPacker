@@ -104,14 +104,16 @@ public class InstallHelperDialog extends BaseDialog {
             if (loadedMod != null){
               text.row();
 
-              if (loadedMod.hasSteamID()) {
-                text.add(Core.bundle.get("package.cannotOverrideSteamMod")).color(Color.red).wrap().bottom().fillY().growX().padBottom(5);
-              }
-              else if (ModInfo.compareVersion(mod.version, loadedMod.meta.version) < 0){
-                text.add(Core.bundle.get("package.existHigher")).color(Color.red).wrap().bottom().fillY().growX().padBottom(5);
-              }
-              else{
-                text.add(Core.bundle.get("package.existSameName")).color(Color.gray).wrap().bottom().fillY().growX().padBottom(5);
+              try {
+                if (loadedMod.hasSteamID()) {
+                  text.add(Core.bundle.get("package.cannotOverrideSteamMod")).color(Color.red).wrap().bottom().fillY().growX().padBottom(5);
+                } else if (ModInfo.compareVersion(mod.version, loadedMod.meta.version) < 0) {
+                  text.add(Core.bundle.get("package.existHigher")).color(Color.red).wrap().bottom().fillY().growX().padBottom(5);
+                } else {
+                  text.add(Core.bundle.get("package.existSameName")).color(Color.gray).wrap().bottom().fillY().growX().padBottom(5);
+                }
+              }catch (IllegalArgumentException e){
+                text.add(Core.bundle.get("package.existSameNameNonVer")).color(Color.red).wrap().bottom().fillY().growX().padBottom(5);
               }
             }
           }).top().growX();
