@@ -522,192 +522,190 @@ public class ModPackerDialog extends BaseDialog {
       }
     });
 
-    cont.table(main -> {
-      main.table(layout -> {
-        layout.table(searcher -> {
-          searcher.image(Icon.zoom).size(50);
-          searcher.field("", t -> {
-            nameContains = t;
-            patternError1 = false;
-            rebuild.run();
-          }).update(f -> f.setColor(patternError1? Color.red: Color.white));
-          searcher.button(Icon.filter, Styles.clearNonei, () -> {
-            BaseDialog dialog = new BaseDialog("");
-            dialog.titleTable.clear();
-            dialog.addCloseButton();
-
-            Runnable build = () -> {
-              dialog.cont.clearChildren();
-
-              dialog.cont.defaults().left();
-
-              dialog.cont.add(Core.bundle.get("packer.name"));
-              dialog.cont.field(nameContains, t -> {
-                nameContains = t;
-                patternError1 = false;
-                rebuild.run();
-              }).update(f -> f.setColor(patternError1? Color.red: Color.white));
-              dialog.cont.row();
-
-              dialog.cont.add(Core.bundle.get("packer.internalName"));
-              dialog.cont.field(internalNameCont, t -> {
-                internalNameCont = t;
-                patternError0 = false;
-                rebuild.run();
-              }).update(f -> f.setColor(patternError0? Color.red: Color.white));
-              dialog.cont.row();
-
-              dialog.cont.add(Core.bundle.get("packer.author"));
-              dialog.cont.field(author, t -> {
-                author = t;
-                patternError2 = false;
-                rebuild.run();
-              }).update(f -> f.setColor(patternError2? Color.red: Color.white));
-              dialog.cont.row();
-
-              dialog.cont.check(Core.bundle.get("packer.regexPattern"), regexPattern, b -> regexPattern = b);
-              dialog.cont.row();
-
-              dialog.cont.add(Core.bundle.get("packer.minGameVersion"));
-              dialog.cont.field(String.valueOf(minGameVersion), t -> {
-                try{
-                  minGameVersion = Integer.parseInt(t);
-                  patternError3 = false;
-                }catch (NumberFormatException e){
-                  patternError3 = true;
-                  minGameVersion = -1;
-                }
-                rebuild.run();
-              }).update(f -> f.setColor(patternError3? Color.red: Color.white));
-              dialog.cont.row();
-
-              dialog.cont.add(Core.bundle.get("packer.isHidden"));
-              dialog.cont.button("", Styles.flatBordert, () -> {
-                isHidden++;
-                if (isHidden >= 2) isHidden = -1;
-
-                rebuild.run();
-              }).update(b -> b.setText(Core.bundle.get(isHidden == -1? "packer.ignored": isHidden == 0? "packer.no": "packer.yes"))).size(200, 50);
-              dialog.cont.row();
-            };
-            build.run();
-
-            dialog.buttons.button(Core.bundle.get("packer.reset"), Icon.trash, () -> {
-              nameContains = "";
-              internalNameCont = "";
-              author = "";
-              minGameVersion = -1;
-              isHidden = -1;
-              regexPattern = false;
-              patternError0 = patternError1 = patternError2 = patternError3 = false;
-              build.run();
-              rebuild.run();
-            });
-
-            dialog.show();
-          }).size(50);
-        }).fillY().growX();
-        layout.row();
-        layout.add(Core.bundle.get("packer.selectModsTip")).color(Pal.accent).pad(10).center().growX().labelAlign(Align.center);
-        layout.row();
-        layout.pane(list -> {
-          rebuild = () -> {
-            float width = Math.min(Core.graphics.getWidth()/Scl.scl(1.05f), 600f);
-            boolean horizontal = width*2 < Core.graphics.getWidth()/Scl.scl(1.05f);
-
-            selectedList.clear();
-            unselectList.clear();
-
-            list.clearChildren();
-
-            list.defaults().top().pad(3);
-
-            Runnable uns = () -> {
-              list.table(unselect -> {
-                unselect.add(Core.bundle.get("packer.candidate"));
-                unselect.row();
-                unselect.image().color(Pal.accent).height(4).pad(4).padLeft(0).padRight(0).growX();
-                unselect.row();
-                Cons<Table> c = items -> {
-                  for (Mods.LoadedMod mod : mods.list()) {
-                    if (!model.selected(ModInfo.asLoaded(mod)) && filter(mod)) {
-                      unselectList.add(ModInfo.asLoaded(mod));
-                      buildModItem(items, mod, false, horizontal);
-                      items.row();
-                    }
-                  }
-                  if (unselectList.isEmpty()){
-                    items.table(t -> t.center().add("empty").center()).center().height(110).growX().pad(4f);
-                    items.row();
-                  }
-                  else{
-                    items.button(Core.bundle.get("packer.selectAll"), horizontal? Icon.right: Icon.up, Styles.flatBordert, () -> {
-                      for (ModInfo mod : unselectList) {
-                        model.addMod(mod);
-                      }
-                      rebuild.run();
-                    }).height(90).growX();
-                    items.row();
-                  }
-                };
-
-                if (horizontal) {
-                  unselect.pane(c).scrollX(false).top().growX().fillY();
-                } else unselect.table(c).top().growX().fillY();
-              }).width(width);
-            };
-
-            Runnable sel = () -> {
-              list.table(selected -> {
-                selected.add(Core.bundle.get("packer.selected"));
-                selected.row();
-                selected.image().color(Pal.accent).height(4).pad(4).padLeft(0).padRight(0).growX();
-                selected.row();
-                Cons<Table> c = items -> {
-                  for (Mods.LoadedMod mod : mods.list()) {
-                    if (model.selected(ModInfo.asLoaded(mod)) && filter(mod)) {
-                      selectedList.add(ModInfo.asLoaded(mod));
-                      buildModItem(items, mod, true, horizontal);
-                      items.row();
-                    }
-                  }
-                  if (selectedList.isEmpty()){
-                    items.table(t -> t.center().add("empty").center()).center().height(110).growX().pad(4f);
-                    items.row();
-                  }
-                  else{
-                    items.button(Core.bundle.get("packer.unselectAll"), horizontal? Icon.left: Icon.down, Styles.flatBordert, () -> {
-                      for (ModInfo mod : selectedList) {
-                        model.removeMod(mod);
-                      }
-                      rebuild.run();
-                    }).height(90).growX();
-                    items.row();
-                  }
-                };
-
-                if (horizontal) {
-                  selected.pane(c).scrollX(false).top().growX().fillY();
-                } else selected.table(c).top().growX().fillY();
-              }).width(width);
-            };
-
-            if (!horizontal) {
-              sel.run();
-              list.row();
-              list.image().color(Color.gray).height(4).pad(4).padLeft(0).padRight(0).growX();
-              list.row();
-              uns.run();
-            }
-            else{
-              uns.run();
-              list.image().color(Color.gray).width(4).pad(4).padTop(0).padBottom(0).growY();
-              sel.run();
-            }
-          };
+    cont.table(layout -> {
+      layout.table(searcher -> {
+        searcher.image(Icon.zoom).size(50);
+        searcher.field("", t -> {
+          nameContains = t;
+          patternError1 = false;
           rebuild.run();
-        }).scrollX(false).fill().top().padTop(15);
-      }).growY().padTop(180).padBottom(60);
+        }).update(f -> f.setColor(patternError1? Color.red: Color.white));
+        searcher.button(Icon.filter, Styles.clearNonei, () -> {
+          BaseDialog dialog = new BaseDialog("");
+          dialog.titleTable.clear();
+          dialog.addCloseButton();
+
+          Runnable build = () -> {
+            dialog.cont.clearChildren();
+
+            dialog.cont.defaults().left();
+
+            dialog.cont.add(Core.bundle.get("packer.name"));
+            dialog.cont.field(nameContains, t -> {
+              nameContains = t;
+              patternError1 = false;
+              rebuild.run();
+            }).update(f -> f.setColor(patternError1? Color.red: Color.white));
+            dialog.cont.row();
+
+            dialog.cont.add(Core.bundle.get("packer.internalName"));
+            dialog.cont.field(internalNameCont, t -> {
+              internalNameCont = t;
+              patternError0 = false;
+              rebuild.run();
+            }).update(f -> f.setColor(patternError0? Color.red: Color.white));
+            dialog.cont.row();
+
+            dialog.cont.add(Core.bundle.get("packer.author"));
+            dialog.cont.field(author, t -> {
+              author = t;
+              patternError2 = false;
+              rebuild.run();
+            }).update(f -> f.setColor(patternError2? Color.red: Color.white));
+            dialog.cont.row();
+
+            dialog.cont.check(Core.bundle.get("packer.regexPattern"), regexPattern, b -> regexPattern = b);
+            dialog.cont.row();
+
+            dialog.cont.add(Core.bundle.get("packer.minGameVersion"));
+            dialog.cont.field(String.valueOf(minGameVersion), t -> {
+              try{
+                minGameVersion = Integer.parseInt(t);
+                patternError3 = false;
+              }catch (NumberFormatException e){
+                patternError3 = true;
+                minGameVersion = -1;
+              }
+              rebuild.run();
+            }).update(f -> f.setColor(patternError3? Color.red: Color.white));
+            dialog.cont.row();
+
+            dialog.cont.add(Core.bundle.get("packer.isHidden"));
+            dialog.cont.button("", Styles.flatBordert, () -> {
+              isHidden++;
+              if (isHidden >= 2) isHidden = -1;
+
+              rebuild.run();
+            }).update(b -> b.setText(Core.bundle.get(isHidden == -1? "packer.ignored": isHidden == 0? "packer.no": "packer.yes"))).size(200, 50);
+            dialog.cont.row();
+          };
+          build.run();
+
+          dialog.buttons.button(Core.bundle.get("packer.reset"), Icon.trash, () -> {
+            nameContains = "";
+            internalNameCont = "";
+            author = "";
+            minGameVersion = -1;
+            isHidden = -1;
+            regexPattern = false;
+            patternError0 = patternError1 = patternError2 = patternError3 = false;
+            build.run();
+            rebuild.run();
+          });
+
+          dialog.show();
+        }).size(50);
+      }).fillY().growX();
+      layout.row();
+      layout.add(Core.bundle.get("packer.selectModsTip")).color(Pal.accent).pad(10).center().growX().labelAlign(Align.center);
+      layout.row();
+      layout.pane(list -> {
+        rebuild = () -> {
+          float width = Math.min(Core.graphics.getWidth()/Scl.scl(1.05f), 600f);
+          boolean horizontal = width*2 < Core.graphics.getWidth()/Scl.scl(1.05f);
+
+          selectedList.clear();
+          unselectList.clear();
+
+          list.clearChildren();
+
+          list.defaults().top().pad(3);
+
+          Runnable uns = () -> {
+            list.table(unselect -> {
+              unselect.add(Core.bundle.get("packer.candidate"));
+              unselect.row();
+              unselect.image().color(Pal.accent).height(4).pad(4).padLeft(0).padRight(0).growX();
+              unselect.row();
+              Cons<Table> c = items -> {
+                for (Mods.LoadedMod mod : mods.list()) {
+                  if (!model.selected(ModInfo.asLoaded(mod)) && filter(mod)) {
+                    unselectList.add(ModInfo.asLoaded(mod));
+                    buildModItem(items, mod, false, horizontal);
+                    items.row();
+                  }
+                }
+                if (unselectList.isEmpty()){
+                  items.table(t -> t.center().add("empty").center()).center().height(110).growX().pad(4f);
+                  items.row();
+                }
+                else{
+                  items.button(Core.bundle.get("packer.selectAll"), horizontal? Icon.right: Icon.up, Styles.flatBordert, () -> {
+                    for (ModInfo mod : unselectList) {
+                      model.addMod(mod);
+                    }
+                    rebuild.run();
+                  }).height(90).growX();
+                  items.row();
+                }
+              };
+
+              if (horizontal) {
+                unselect.pane(c).scrollX(false).top().growX().fillY();
+              } else unselect.table(c).top().growX().fillY();
+            }).width(width);
+          };
+
+          Runnable sel = () -> {
+            list.table(selected -> {
+              selected.add(Core.bundle.get("packer.selected"));
+              selected.row();
+              selected.image().color(Pal.accent).height(4).pad(4).padLeft(0).padRight(0).growX();
+              selected.row();
+              Cons<Table> c = items -> {
+                for (Mods.LoadedMod mod : mods.list()) {
+                  if (model.selected(ModInfo.asLoaded(mod)) && filter(mod)) {
+                    selectedList.add(ModInfo.asLoaded(mod));
+                    buildModItem(items, mod, true, horizontal);
+                    items.row();
+                  }
+                }
+                if (selectedList.isEmpty()){
+                  items.table(t -> t.center().add("empty").center()).center().height(110).growX().pad(4f);
+                  items.row();
+                }
+                else{
+                  items.button(Core.bundle.get("packer.unselectAll"), horizontal? Icon.left: Icon.down, Styles.flatBordert, () -> {
+                    for (ModInfo mod : selectedList) {
+                      model.removeMod(mod);
+                    }
+                    rebuild.run();
+                  }).height(90).growX();
+                  items.row();
+                }
+              };
+
+              if (horizontal) {
+                selected.pane(c).scrollX(false).top().growX().fillY();
+              } else selected.table(c).top().growX().fillY();
+            }).width(width);
+          };
+
+          if (!horizontal) {
+            sel.run();
+            list.row();
+            list.image().color(Color.gray).height(4).pad(4).padLeft(0).padRight(0).growX();
+            list.row();
+            uns.run();
+          }
+          else{
+            uns.run();
+            list.image().color(Color.gray).width(4).pad(4).padTop(0).padBottom(0).growY();
+            sel.run();
+          }
+        };
+        rebuild.run();
+      }).scrollX(false).fill().top().padTop(15);
     }).growY();
   }
 
