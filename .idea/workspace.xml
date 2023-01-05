@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b78fe4-bfa0-46fe-8a5c-c67ae31a0cd5" name="变更" comment="紧急修复严重问题">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bundles/bundle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bundles/bundle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bundles/bundle_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bundles/bundle_zh_CN.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mod.hjson" beforeDir="false" afterPath="$PROJECT_DIR$/mod.hjson" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packModel/assets/bundles/bundle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/assets/bundles/bundle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packModel/assets/bundles/bundle_zh_CN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/assets/bundles/bundle_zh_CN.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packModel/src/main/InstallHelperDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/src/main/InstallHelperDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packModel/src/main/ModInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/src/main/ModInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packModel/src/main/ReleaseHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/packModel/src/main/ReleaseHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modpacker/ArcMetaGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/ArcMetaGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modpacker/ui/ModPackerDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/ui/ModPackerDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modpacker/utils/ModInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/utils/ModInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modpacker/utils/PackModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modpacker/utils/PackModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +189,7 @@
       <workItem from="1672656867112" duration="15127000" />
       <workItem from="1672717877641" duration="43473000" />
       <workItem from="1672802354476" duration="37964000" />
-      <workItem from="1672889844906" duration="6062000" />
+      <workItem from="1672889844906" duration="6128000" />
     </task>
     <task id="LOCAL-00001" summary="算是，初步完成了这个工具吧">
       <created>1672842636264</created>
@@ -232,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672846105473</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="紧急修复严重问题">
+      <created>1672898744849</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672898744849</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
